@@ -32,6 +32,7 @@ export class LoginComponent {
   selectGame(games) {
     if (games) {
       this.selectedGameId = Object.keys(games)[0];
+      this.game.mountGame(this.selectedGameId)
     } else {
       this.view.showNoGames()
     }

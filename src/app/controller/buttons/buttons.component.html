@@ -6,7 +6,7 @@
     <tr *ngFor="let answer of answers; let i=index">
       <td>
         <button
-          [class.hide]="hideAnswers"
+          [class.hide]="isHidden()"
           [class.disabled]="isDisabled(i)"
           [class.pressed]="i === selectedAnswer"
           [innerHTML]="answer"

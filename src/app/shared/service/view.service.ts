@@ -1,12 +1,16 @@
-import { Injectable } from '@angular/core'
+import { Injectable, NgZone } from '@angular/core'
 import { Router } from '@angular/router'
 
 @Injectable()
 export class ViewService {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private zone: NgZone) {}
 
   isOnController() {
     return this.router.url === '/controller'
+  }
+
+  isOnLogin() {
+    this.router.url === '/login'
   }
 
   isOnRules() {
@@ -14,18 +18,18 @@ export class ViewService {
   }
 
   showLogin() {
-    this.router.navigateByUrl('/login')
+    this.zone.run(() => this.router.navigate(['login']));
   }
 
   showController() {
-    this.router.navigateByUrl('/controller')
+    this.zone.run(() => this.router.navigate(['controller']));
   }
 
   showNoGames() {
-    this.router.navigateByUrl('/no-games')
+    this.zone.run(() => this.router.navigate(['no-games']));
   }
 
   showRules() {
-    this.router.navigateByUrl('/rules')
+    this.zone.run(() => this.router.navigate(['rules']));
   }
 }

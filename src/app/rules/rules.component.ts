@@ -18,16 +18,13 @@ export class RulesComponent {
 
   ngOnInit() {
     this.stateSub = this.game.state.subscribe(state => this.processState(state))
-    console.log('ngOnInit')
   }
 
   ngOnDestroy() {
-    console.log('ngOnDestroy')
     this.stateSub.unsubscribe()
   }
 
   processState(state: State) {
-    console.log('here', state.rules)
     this.rules = state.rules
     this.cdr.detectChanges()
   }

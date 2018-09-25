@@ -2,7 +2,7 @@ import { ChangeDetectorRef, Component } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { DataService } from '../../shared/service/data.service';
-import { GameService, Player, State } from '../../shared/service/game.service';
+import { Answer, GameService, Player, State } from '../../shared/service/game.service';
 
 @Component({
   selector: 'buttons',
@@ -12,11 +12,12 @@ import { GameService, Player, State } from '../../shared/service/game.service';
 export class ButtonsComponent {
 
   public answers: Array<string>
-  public hideAnswers: boolean
   public selectedAnswer: number
   public questionText: string
 
   private canAnswer: boolean = true
+  private checkedAnswer: boolean = false
+  private hideAnswers: boolean = true
   private playerId: string
   private playerSub: Subscription
   private stateSub: Subscription
@@ -41,20 +42,34 @@ export class ButtonsComponent {
     return !this.canAnswer
   }
 
+  isHidden() {
+    return this.hideAnswers || !this.checkedAnswer
+  }
+
   onClick(answerIndex: number) {
     if (Number.isInteger(this.selectedAnswer)) return
 
     this.selectedAnswer = answerIndex
 
-    let update = { answer: this.selectedAnswer }
-    this.cdr.detectChanges()
+    let answer = { answer: this.selectedAnswer, player_id: this.playerId  }
+    this.data.create('answer', answer, this.playerId)
 
-    this.data.update('player', this.playerId, update)
+    this.cdr.detectChanges()
+  }
+
+  processAnswer(answer: Answer) {
+    this.selectedAnswer = answer ? answer.answer : null
+    this.checkedAnswer = true
+
+    this.cdr.detectChanges()
   }
 
   processPlayer(player: Player) {
     this.playerId = player.id
-    this.selectedAnswer = player.answer
+
+    if (!this.checkedAnswer)
+      this.data.getOnce('answer', player.id).then(answer => this.processAnswer(answer))
+
     this.cdr.detectChanges()
   }
 

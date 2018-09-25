@@ -17,6 +17,25 @@
   text-transform: uppercase;
 }
 
+.content-end-game {
+  height: 85%;
+}
+
+.content-end-game .icon {
+  margin-top: 4vh;
+  font-size: 19vh;
+}
+
+.content-end-game {
+  text-align: center;
+  display: table;
+  width: 100%;
+  color: #065d7b;
+  font-size: 5vw;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
 .content-waiting-container {
   display: table-cell;
   vertical-align: middle;

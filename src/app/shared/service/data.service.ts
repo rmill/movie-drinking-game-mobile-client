@@ -11,8 +11,15 @@ export class DataService {
     this.database = firebase.database();
   }
 
-  create(resource, data) {
-    let newResource = this.getReference(resource).push()
+  create(resource, data, id = null) {
+    let newResource
+
+    if (!id) {
+      newResource = this.getReference(resource).push()
+    } else {
+      newResource = this.getReference(`${resource}/${id}`)
+    }
+
     return newResource.set(data).then(() => newResource.key)
   }
 

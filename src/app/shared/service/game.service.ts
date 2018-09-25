@@ -62,7 +62,7 @@ export class GameService {
     return Promise.resolve(false);
   }
 
-  private mountGame(gameId) {
+  mountGame(gameId) {
     if (this.gameMount) this.gameMount.off()
 
     this.gameMount = this.data.getReference('game', gameId)
@@ -92,9 +92,15 @@ export class GameService {
   }
 
   private processState(state: State) {
+    console.log('new state', state)
     if (state) this.state.next(state)
     else this.gameDeleted.next(null)
   }
+}
+
+export interface Answer {
+  answer: number;
+  player_id: string;
 }
 
 export interface Player {
