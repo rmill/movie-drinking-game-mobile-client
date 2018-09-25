@@ -1,0 +1,27 @@
+.content {
+  height: 90%;
+  font-family: Raleway;
+  padding: 0 4vw;
+  overflow-x: hidden;
+}
+
+.controller .content .content-rules .content-text {
+  padding: 12vh 0px;
+}
+
+.content .content-text.content-notfound {
+  font-size: 10vw;
+}
+
+.controller {
+  background-image: url(../assets/background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+
+.content-error {
+  padding-top: 10px;
+  font-size: 2vh;
+  color: red;
+}

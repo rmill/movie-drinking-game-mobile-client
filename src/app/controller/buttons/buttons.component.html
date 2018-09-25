@@ -1,0 +1,20 @@
+<div class="content-buttons">
+  <div class="question">
+    <span [innerHTML]="questionText"></span>
+  </div>
+  <table>
+    <tr *ngFor="let answer of answers; let i=index">
+      <td>
+        <button
+          [class.hide]="hideAnswers"
+          [class.disabled]="isDisabled(i)"
+          [class.pressed]="i === selectedAnswer"
+          [innerHTML]="answer"
+          (click)="onClick(i)"
+          class="controller-button"
+        >
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>

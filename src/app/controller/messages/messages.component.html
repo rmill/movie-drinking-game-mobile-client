@@ -1,0 +1,23 @@
+<div *ngIf="!hasStarted" class="content-start-game">
+  <div class="content-start-game-container">
+    <img class="logo-medium">
+    <div><b>get your drinks!</b></div>
+    <div>we'll be starting soon</div>
+  </div>
+</div>
+
+<div *ngIf="hasStarted && isIdle" class="content-waiting">
+  <div class="content-waiting-container">
+    <div>Next question in</div>
+    <div class="content-waiting-minutes" [innerHTML]="nextQuestionIn"></div>
+    <div class="content-waiting-denomination" [innerHTML]="nextQuestionInDenomination"></div>
+  </div>
+</div>
+
+<div *ngIf="hasStarted && hasFinished" class="content-waiting">
+  <div class="content-start-game-container">
+    <img class="logo-medium">
+    <div><b>The game is now over!</b></div>
+    <div>the trivia results will be posted at the end of the movie</div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+.content-rules {
+  font-family: Raleway;
+  color: #065d7b;
+}
+
+ul {
+  margin: 0;
+}
+
+li {
+  padding-bottom: 4vh;
+  font-size: 6vw;
+}
+
+.content-text {
+  padding: 5vh 0px;
+  text-align: center;
+  font-size: 18vw;
+  font-weight: 700;
+}

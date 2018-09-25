@@ -1,0 +1,14 @@
+.content-score {
+  height: 15%;
+  text-align: center;
+  color: #065d7b;
+}
+
+.content-score .content-score-icon {
+  font-size: 6vw;
+  margin: 15px;
+}
+
+.content-score .content-score-icon i {
+  margin-right: 5px;
+}

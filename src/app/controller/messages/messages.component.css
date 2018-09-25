@@ -1,0 +1,50 @@
+.content-waiting {
+  height: 85%;
+}
+
+.content-waiting .icon {
+  margin-top: 4vh;
+  font-size: 19vh;
+}
+
+.content-waiting {
+  text-align: center;
+  display: table;
+  width: 100%;
+  color: #065d7b;
+  font-size: 7vw;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.content-waiting-container {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.content-waiting-minutes {
+  font-weight: 900;
+  font-size: 56vw;
+  margin-top: -7vw;
+}
+
+.content-start-game {
+  width: 100%;
+  height: 85%;
+  display: table;
+}
+
+.content-start-game-container {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  text-transform: uppercase;
+  color: #065d7b;
+}
+
+.logo-medium {
+  content: url(../../../assets/logo-medium.png);
+  height: auto;
+  width: 74vw;
+  margin-bottom: 24vh;
+}
