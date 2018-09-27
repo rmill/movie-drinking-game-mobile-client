@@ -11,7 +11,7 @@ import { ViewService } from '../service/view.service';
 })
 export class HeaderComponent {
 
-  public showRulesBtn: Boolean;
+  public showRulesBtn: boolean = false;
 
   private gameOverSub: Subscription
   private stateSub: Subscription
@@ -21,7 +21,7 @@ export class HeaderComponent {
   ) {}
 
   ngOnInit() {
-    this.stateSub = this.game.state.subscribe(state => this.processState(state))
+    this.stateSub = this.game.state.subscribe(() => this.processState())
     this.gameOverSub = this.game.gameDeleted.subscribe(() => this.showRulesBtn = false)
   }
 
@@ -30,7 +30,8 @@ export class HeaderComponent {
     this.stateSub.unsubscribe()
   }
 
-  processState(state: State) {
+  processState() {
+    console.log(!this.view.isOnLogin())
     this.showRulesBtn = !this.view.isOnLogin()
     this.cdr.detectChanges()
   }

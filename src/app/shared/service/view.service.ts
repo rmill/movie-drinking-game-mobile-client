@@ -10,7 +10,7 @@ export class ViewService {
   }
 
   isOnLogin() {
-    this.router.url === '/login'
+    return this.router.url === '/login'
   }
 
   isOnRules() {
