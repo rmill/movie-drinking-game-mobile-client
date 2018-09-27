@@ -41,12 +41,15 @@ export class GameService {
 
   login(name: string, gameId: string) {
     let player = {
-      game_id: gameId,
+      answer_speed: 0,
+      best_streak: 0,
       correct_answers: 0,
+      current_streak: 0,
+      drinks: 0,
+      game_id: gameId,
       incorrect_answers: 0,
       missed_answers: 0,
-      drinks: 0,
-      name
+      name: name
     }
 
     return this.data.create('player', player)

@@ -28,7 +28,7 @@ export class MessagesComponent {
   }
 
   processState(state: State) {
-    this.hasFinished = state.state == this.game.WAITING_FOR_END
+    this.hasFinished = [this.game.WAITING_FOR_END, this.game.END_GAME].includes(state.state)
     this.hasStarted = state.state != this.game.NEW_GAME
     this.isIdle = state.state == this.game.IDLE
     this.nextQuestionIn = Math.ceil(state.seconds_to_next_question / 60)
