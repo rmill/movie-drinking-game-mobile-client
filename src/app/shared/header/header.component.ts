@@ -31,7 +31,6 @@ export class HeaderComponent {
   }
 
   processState() {
-    console.log(!this.view.isOnLogin())
     this.showRulesBtn = !this.view.isOnLogin()
     this.cdr.detectChanges()
   }
