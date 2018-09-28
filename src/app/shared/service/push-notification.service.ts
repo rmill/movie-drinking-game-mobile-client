@@ -14,4 +14,8 @@ export class PushNotificationService {
   requestPermission() {
     return this.messaging.requestPermission();
   }
+
+  getToken() {
+    return this.messaging.getToken();
+  }
 }

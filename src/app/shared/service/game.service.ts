@@ -39,13 +39,14 @@ export class GameService {
     return this.data.getOnce('game')
   }
 
-  login(name: string, gameId: string) {
+  login(name: string, gameId: string, token: string) {
     let player = {
       answer_speed: 0,
       best_streak: 0,
       correct_answers: 0,
       current_streak: 0,
       drinks: 0,
+      fcm_token: token,
       game_id: gameId,
       incorrect_answers: 0,
       missed_answers: 0,

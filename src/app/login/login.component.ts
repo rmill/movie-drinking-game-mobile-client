@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { GameService } from '../shared/service/game.service';
+import { PushNotificationService } from '../shared/service/push-notification.service';
 import { ViewService } from '../shared/service/view.service';
 
 @Component({
@@ -16,7 +17,9 @@ export class LoginComponent {
   private errorMsg: string;
   private selectedGameId: string;
 
-  constructor(private game: GameService, private view: ViewService) {}
+  constructor(
+    private game: GameService, private pushNotification: PushNotificationService, private view: ViewService
+  ) {}
 
   ngOnInit() {
     this.game.findGames().then(games => this.selectGame(games))
@@ -24,7 +27,8 @@ export class LoginComponent {
 
   login() {
     if (this.validate()) {
-      this.game.login(this.userName, this.selectedGameId)
+      this.pushNotification.getToken()
+        .then(token => this.game.login(this.userName, this.selectedGameId, token))
         .then(() => this.view.showController())
     }
   }
