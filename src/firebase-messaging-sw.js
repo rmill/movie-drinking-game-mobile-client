@@ -12,4 +12,5 @@ let config =  {
 
 firebase.initializeApp(config);
 
-const messaging = firebase.messaging();
+try { const messaging = firebase.messaging() }
+catch(err) { console.log(err) }

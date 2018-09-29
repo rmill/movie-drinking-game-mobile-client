@@ -8,14 +8,17 @@ export class PushNotificationService {
   private messaging: any;
 
   constructor() {
-    this.messaging = firebase.messaging();
+    try { this.messaging = firebase.messaging() }
+    catch(err) { console.log(err) }
   }
 
   requestPermission() {
-    return this.messaging.requestPermission();
+    if (!this.messaging) return Promise.reject()
+    return this.messaging.requestPermission()
   }
 
   getToken() {
-    return this.messaging.getToken();
+    if (!this.messaging) return Promise.reject()
+    return this.messaging.getToken()
   }
 }
