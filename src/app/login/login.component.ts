@@ -13,9 +13,10 @@ export class LoginComponent {
 
   readonly MAX_USER_NAME_LENGTH: number = 16;
 
-  private userName: string;
+  private loggingIn: boolean = false;
   private errorMsg: string;
   private selectedGameId: string;
+  private userName: string;
 
   constructor(
     private game: GameService, private pushNotification: PushNotificationService, private view: ViewService
@@ -27,6 +28,8 @@ export class LoginComponent {
 
   login() {
     if (this.validate()) {
+      this.loggingIn = true;
+
       this.pushNotification.getToken()
         .catch(() => null)
         .then(token => this.game.login(this.userName, this.selectedGameId, token))
