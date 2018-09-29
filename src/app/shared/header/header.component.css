@@ -1,4 +1,4 @@
-.header-logo {
+  .header-logo {
   width: 26vh;
   height: 100%;
 }
@@ -26,6 +26,6 @@
 
 .logo {
   content: url(../../../assets/Logo.svg);
-  height: 100%;
+  margin-top: 12%;
   width: 100%;
 }
