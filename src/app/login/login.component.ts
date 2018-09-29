@@ -28,6 +28,7 @@ export class LoginComponent {
   login() {
     if (this.validate()) {
       this.pushNotification.getToken()
+        .catch(() => null)
         .then(token => this.game.login(this.userName, this.selectedGameId, token))
         .then(() => this.view.showController())
     }
