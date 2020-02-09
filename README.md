@@ -13,7 +13,7 @@ This application requires SSL to run ServiceWorkers. To install the SSL keys run
 - `sudo update-ca-certificates`
 - Now open Chrome and go to chrome://settings/certificates
 - Click `Authorities -> Import` and select the .crt file from `/usr/local/share/ca-certificates/rootCA.crt`
-- Close Chrome (next time Chrome is started the SSL certificates will be accepted
+- Close Chrome (next time Chrome is started the SSL certificates will be accepted)
 
 ### Genertating New SSL Certificates`
 
