@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli).
 
-## Install requirements
+## Install Requirements
 
 After you clone thie repo, run `npm install`. This will install all of the requirements
 
@@ -21,6 +21,6 @@ If the SSL certificates expire run the following (from the application root):
 - `openssl req -new -sha256 -nodes -out ssl/server.csr -newkey rsa:2048 -keyout ssl/server.key -config <( cat ssl/server.csr.cnf )`
 - `openssl x509 -req -in ssl/server.csr -CA ssl/rootCA.pem -CAkey ssl/rootCA.key -CAcreateserial -out ssl/server.crt -days 500 -sha256 -extfile ssl/v3.ext`
 
-## Development server
+## Development Server
 
 Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
