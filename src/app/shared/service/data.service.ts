@@ -17,7 +17,7 @@ export class DataService {
     if (!id) {
       newResource = this.getReference(resource).push()
     } else {
-      newResource = this.getReference(`${resource}/${id}`)
+      newResource = this.getReference(resource, id)
     }
 
     return newResource.set(data).then(() => newResource.key)

@@ -1,0 +1,7 @@
+{
+  "name": "mobile-test",
+  "question": {
+    "text": "This is a test question"
+  },
+  "state": "waiting_for_question"
+}
