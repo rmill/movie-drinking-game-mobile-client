@@ -9,7 +9,7 @@
           [class.hide]="isHidden()"
           [class.disabled]="isDisabled(i)"
           [class.pressed]="i === selectedAnswer"
-          [innerHTML]="answer"
+          [innerHTML]="answer.text"
           (click)="onClick(i)"
           class="controller-button"
         >

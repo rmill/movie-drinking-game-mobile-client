@@ -1,0 +1,13 @@
+{
+  "name": "mobile-test",
+  "question": {
+    "answers": [
+      { "text": "Answer 1" },
+      { "text": "Answer 2" },
+      { "text": "Answer 3" },
+      { "text": "Answer 4" }
+    ],
+    "text": "This is a test question"
+  },
+  "state": "waiting_for_answers"
+}

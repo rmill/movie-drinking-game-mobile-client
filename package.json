@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "firebase deploy"
+    "deploy": "firebase deploy",
+    "state": "node scripts/create-game.js"
   },
   "private": true,
   "dependencies": {
