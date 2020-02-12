@@ -1,4 +1,7 @@
 {
   "name": "mobile-test",
+  "rules": [
+    "This is a <b>TEST</b> rule"
+  ],
   "state": "new_game"
 }
