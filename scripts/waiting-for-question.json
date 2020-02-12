@@ -1,7 +1,10 @@
 {
   "name": "mobile-test",
   "question": {
-    "text": "This is a test question"
+    "text": "This is a <i>TEST</i> question"
   },
+  "rules": [
+    "This is a <i>TEST</i> rule"
+  ],
   "state": "waiting_for_question"
 }

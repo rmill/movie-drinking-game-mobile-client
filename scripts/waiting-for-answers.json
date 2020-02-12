@@ -5,9 +5,12 @@
       { "text": "Answer 1" },
       { "text": "Answer 2" },
       { "text": "Answer 3" },
-      { "text": "Answer 4" }
+      { "text": "<i>LAST ANSWER</i>" }
     ],
-    "text": "This is a test question"
+    "text": "This is a <i>TEST</i> question"
   },
+  "rules": [
+    "This is a <b>TEST</b> rule"
+  ],
   "state": "waiting_for_answers"
 }
