@@ -23,4 +23,4 @@ If the SSL certificates expire run the following (from the application root):
 
 ## Development Server
 
-Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm start` for a dev server. Navigate to `https://localhost:4200/`. The app will automatically reload if you change any of the source files.
