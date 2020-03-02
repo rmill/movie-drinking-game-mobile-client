@@ -4,6 +4,9 @@ import { GameService } from '../shared/service/game.service';
 import { PushNotificationService } from '../shared/service/push-notification.service';
 import { ViewService } from '../shared/service/view.service';
 
+import { AuthService } from "angularx-social-login";
+import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
+
 @Component({
   selector: 'login',
   templateUrl: './login.component.html',
@@ -15,18 +18,14 @@ export class LoginComponent {
 
   private loggingIn: boolean = false;
   private errorMsg: string;
-  private selectedGameId: string;
   private userName: string;
 
   constructor(
-    private game: GameService, private pushNotification: PushNotificationService, private view: ViewService
+    private game: GameService, private pushNotification: PushNotificationService, private view: ViewService,
+    private authService: AuthService
   ) {}
 
-  ngOnInit() {
-    this.game.findGames().then(games => this.selectGame(games))
-  }
-
-  login() {
+  public loginGuest() {
     if (this.validate()) {
       this.loggingIn = true;
 
@@ -37,13 +36,12 @@ export class LoginComponent {
     }
   }
 
-  selectGame(games) {
-    if (games) {
-      this.selectedGameId = Object.keys(games)[0];
-      this.game.mountGame(this.selectedGameId)
-    } else {
-      this.view.showNoGames()
-    }
+  public loginWithFacebook() {
+    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
+  }
+
+  public loginWithGoogle() {
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
   }
 
   private validate() {

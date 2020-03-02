@@ -4,6 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import * as firebase from 'firebase';
 
+import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
+import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
+
 import { AppComponent } from './app.component';
 import { ControllerComponent } from './controller/controller.component';
 import { ControllerModule } from './controller/controller.module';
@@ -25,6 +28,21 @@ const appRoutes: any = [
   { path: 'rules', component: RulesComponent }
 ];
 
+let config = new AuthServiceConfig([
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    provider: new GoogleLoginProvider("828526569727-etbj4h1hoqv6p32ckubk355mqhc1gc9o.apps.googleusercontent.com")
+  },
+  {
+    id: FacebookLoginProvider.PROVIDER_ID,
+    provider: new FacebookLoginProvider("627129768080954")
+  }
+]);
+
+export function provideConfig() {
+  return config;
+}
+
 firebase.initializeApp(environment.firebase);
 
 @NgModule({
@@ -40,9 +58,13 @@ firebase.initializeApp(environment.firebase);
     BrowserModule,
     ControllerModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    SocialLoginModule
   ],
-  providers: [ DataService, GameService, PushNotificationService, ViewService ],
+  providers: [
+    DataService, GameService, PushNotificationService, ViewService,
+    { provide: AuthServiceConfig, useFactory: provideConfig }
+  ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

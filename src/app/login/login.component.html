@@ -1,6 +1,6 @@
 <div *ngIf='selectedGameId'>
   <div class="content-text">SIGN IN</div>
-  <form #loginForm="ngForm" (ngSubmit)="login()">
+  <form #loginForm="ngForm" (ngSubmit)="loginGuest()">
     <input [(ngModel)]="userName" [class.input-error]="userNameError" name="userName" type="text" placeholder="USER NAME">
     <div *ngIf="errorMsg" class="content-error">{{ errorMsg }}</div>
     <button type="submit" [disabled]="loggingIn" class="submit">
@@ -8,4 +8,12 @@
       <i *ngIf="loggingIn" class="fa fa-spinner fa-spin"></i>
     </button>
   </form>
+  <button (click)="loginWithFacebook()" [disabled]="loggingIn" class="submit">
+    <span *ngIf="!loggingIn">Continue with Facebook</span>
+    <i *ngIf="loggingIn" class="fa fa-spinner fa-spin"></i>
+  </button>
+  <button (click)="loginWithGoogle()" [disabled]="loggingIn" class="submit">
+    <span *ngIf="!loggingIn">Continue with Google</span>
+    <i *ngIf="loggingIn" class="fa fa-spinner fa-spin"></i>
+  </button>
 </div>
