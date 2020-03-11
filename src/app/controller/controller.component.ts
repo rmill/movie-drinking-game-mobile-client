@@ -1,33 +1,34 @@
-import { ChangeDetectorRef, Component, Input } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { Subscription } from 'rxjs';
 
-import { GameService, Question, State } from '../shared/service/game.service';
+import { GameService, Question } from '../shared/service/game.service';
+import { State } from '../shared/service/state.service';
 
 @Component({
-  selector: 'controller',
+  selector: 'app-controller',
   templateUrl: './controller.component.html',
   styleUrls: ['./controller.component.css']
 })
 export class ControllerComponent {
 
   public question: Question;
-  public showController: boolean = false;
+  public showController = false;
 
   private gameSub: Subscription;
 
   constructor(protected cdr: ChangeDetectorRef, protected game: GameService) {}
 
   ngOnInit() {
-    this.gameSub = this.game.state.subscribe(state => this.processState(state))
+    // this.gameSub = this.game.state.subscribe(state => this.processState(state))
   }
 
   ngOnDestroy() {
-    this.gameSub.unsubscribe()
+    this.gameSub.unsubscribe();
   }
 
   processState(state: State) {
     this.showController = true;
-    this.question = state.question
-    this.cdr.detectChanges()
+    this.question = state.question;
+    this.cdr.detectChanges();
   }
 }

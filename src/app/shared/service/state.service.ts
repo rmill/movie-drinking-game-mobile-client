@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ReplaySubject } from 'rxjs';
 
+import { Question } from './game.service';
+
 @Injectable()
 export class StateService {
   readonly NEW_GAME = 'new_game';
@@ -15,24 +17,23 @@ export class StateService {
   readonly WAITING_FOR_DRINKS = 'waiting_for_drinks';
   readonly HIDE_QUESTION = 'hide_question';
   readonly WAITING_FOR_END = 'waiting_for_end';
-  readonly END_GAME = 'end_game'
+  readonly END_GAME = 'end_game';
 
-  public state: ReplaySubject<State>
+  public state: ReplaySubject<State>;
 
   constructor() {
-    this.state = new ReplaySubject(1)
+    this.state = new ReplaySubject(1);
   }
 
   private processState(state: State) {
-    console.log('new state', state)
-    if (state) this.state.next(state)
-    else this.gameDeleted.next(null)
+    console.log('new state', state);
+    this.state.next(state);
   }
 }
 
 export interface State {
-  rules: string[]
-  question?: Question
-  seconds_to_next_question: number
-  state: string
+  rules: string[];
+  question?: Question;
+  seconds_to_next_question: number;
+  state: string;
 }
